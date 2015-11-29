@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
 using PicoStack.Core.Logging;
 
 namespace PicoStack.Core
 {
+    /* REFERENCES:
+       
+        https://www.jmarshall.com/easy/http/
+    */
+
     /* REQUIREMENTS:
       
         Request ends with a blank line (newline for last row followed by another newline, \r\n\r\n)

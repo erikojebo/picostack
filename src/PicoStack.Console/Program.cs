@@ -1,12 +1,10 @@
-﻿using System.Security.Policy;
-using PicoStack.Console.Controllers;
+﻿using PicoStack.Console.Controllers;
 using PicoStack.Core;
-using PicoStack.Core.DependencyInjection;
 using PicoStack.Core.Logging;
 using PicoStack.Core.Rest;
 
 namespace PicoStack.Console
-{
+{   
     class Program
     {
         static void Main(string[] args)
