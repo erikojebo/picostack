@@ -1,5 +1,7 @@
-﻿using PicoStack.Console.Controllers;
+﻿using System.Security.Policy;
+using PicoStack.Console.Controllers;
 using PicoStack.Core;
+using PicoStack.Core.DependencyInjection;
 using PicoStack.Core.Logging;
 using PicoStack.Core.Rest;
 
@@ -9,7 +11,12 @@ namespace PicoStack.Console
     {
         static void Main(string[] args)
         {
-            var server = new Server(new ConsoleLogger(), new RestApiRequestHandler(typeof(UsersController).Assembly));
+            RegistryConfiguration.Initialize();
+
+            var server = new Server(
+                RegistryConfiguration.Registry.Resolve<ILogger>(), 
+                new RestApiRequestHandler(typeof(UsersController).Assembly));
+
             server.Start(8002);
         }
     }

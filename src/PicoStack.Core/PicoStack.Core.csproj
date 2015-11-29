@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\Repository.cs" />
+    <Compile Include="DependencyInjection\Registry.cs" />
     <Compile Include="HttpHeader.cs" />
     <Compile Include="HttpRequest.cs" />
     <Compile Include="HttpResponse.cs" />
