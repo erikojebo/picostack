@@ -1,5 +1,6 @@
 ﻿using PicoStack.Console.Models;
 using PicoStack.Core;
+using PicoStack.Core.DataAccess;
 using PicoStack.Core.Rest;
 
 namespace PicoStack.Console.Controllers
@@ -8,12 +9,11 @@ namespace PicoStack.Console.Controllers
     {
         public HttpResponse Get()
         {
-            return OK(new []
-            {
-                new User { FirstName = "Kalle", LastName = "Persson", Email = "challe_p@domain.com" },
-                new User { FirstName = "Stina", LastName = "Karlsson", Email = "stina77@domain.com" },
-                new User { FirstName = "Nils-Arne", LastName = "Bengtsson", Email = "nils-arne@bengo.com" },
-            });
+            var repository = new Repository("Server=.;Database=picostack;Trusted_Connection=True;");
+
+            var users = repository.Get<User>();
+
+            return OK(users);
         }
 
         public HttpResponse Post(User user)
