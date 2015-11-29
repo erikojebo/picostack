@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicoStack.Core", "PicoStack.Core\PicoStack.Core.csproj", "{CC302A3F-91A2-4E65-B67D-5F99A79004B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicoStack.Console", "PicoStack.Console\PicoStack.Console.csproj", "{353279D6-CC01-43DC-834A-D617951A2BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicoStack.Specs", "PicoStack.Specs\PicoStack.Specs.csproj", "{E8729674-D517-4E59-939A-73CEE6548827}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC302A3F-91A2-4E65-B67D-5F99A79004B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC302A3F-91A2-4E65-B67D-5F99A79004B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC302A3F-91A2-4E65-B67D-5F99A79004B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC302A3F-91A2-4E65-B67D-5F99A79004B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353279D6-CC01-43DC-834A-D617951A2BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353279D6-CC01-43DC-834A-D617951A2BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353279D6-CC01-43DC-834A-D617951A2BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353279D6-CC01-43DC-834A-D617951A2BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8729674-D517-4E59-939A-73CEE6548827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8729674-D517-4E59-939A-73CEE6548827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8729674-D517-4E59-939A-73CEE6548827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8729674-D517-4E59-939A-73CEE6548827}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
