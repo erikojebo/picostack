@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 using PicoStack.Core.Logging;
 
 namespace PicoStack.Core
@@ -63,7 +64,13 @@ namespace PicoStack.Core
 
         private void HandleRequest(TcpListener listener)
         {
-            using (var client = listener.AcceptTcpClient())
+            var client = listener.AcceptTcpClient();
+            ThreadPool.QueueUserWorkItem(x => HandleRequest(client));
+        }
+
+        private void HandleRequest(TcpClient client)
+        {
+            try
             {
                 using (var stream = client.GetStream())
                 using (var writer = new StreamWriter(stream))
@@ -72,7 +79,8 @@ namespace PicoStack.Core
                     var request = ParseRequest(reader);
                     var response = _requestHandler.Handle(request);
 
-                    var dateString =  DateTime.UtcNow.ToString("ddd, dd MMM yyyy HH:mm:ss", new CultureInfo("en-US")) + " GMT";
+                    var dateString = DateTime.UtcNow.ToString("ddd, dd MMM yyyy HH:mm:ss", new CultureInfo("en-US")) +
+                                     " GMT";
 
                     response.AddHeader("Date", dateString);
                     response.AddHeader("Server", "PicoStack 0.1 alpha");
@@ -96,7 +104,9 @@ namespace PicoStack.Core
                     stream.Flush();
                     writer.Close();
                 }
-
+            }
+            finally
+            {
                 client.Close();
             }
         }
