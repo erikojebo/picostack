@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Threading;
 using PicoStack.Core.Logging;
 
-namespace PicoStack.Core
+namespace PicoStack.Core.Web
 {
     /* REFERENCES:
        
@@ -53,19 +53,14 @@ namespace PicoStack.Core
             {
                 try
                 {
-                    HandleRequest(listener);
+                    var client = listener.AcceptTcpClient();
+                    ThreadPool.QueueUserWorkItem(x => HandleRequest(client));
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                 }
             }
-        }
-
-        private void HandleRequest(TcpListener listener)
-        {
-            var client = listener.AcceptTcpClient();
-            ThreadPool.QueueUserWorkItem(x => HandleRequest(client));
         }
 
         private void HandleRequest(TcpClient client)
@@ -79,8 +74,7 @@ namespace PicoStack.Core
                     var request = ParseRequest(reader);
                     var response = _requestHandler.Handle(request);
 
-                    var dateString = DateTime.UtcNow.ToString("ddd, dd MMM yyyy HH:mm:ss", new CultureInfo("en-US")) +
-                                     " GMT";
+                    var dateString = DateTime.UtcNow.ToString("ddd, dd MMM yyyy HH:mm:ss", new CultureInfo("en-US")) + " GMT";
 
                     response.AddHeader("Date", dateString);
                     response.AddHeader("Server", "PicoStack 0.1 alpha");

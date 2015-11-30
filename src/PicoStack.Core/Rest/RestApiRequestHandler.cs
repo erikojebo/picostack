@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using PicoStack.Core.Web;
 
 namespace PicoStack.Core.Rest
 {

@@ -1,5 +1,6 @@
 ﻿
 using PicoStack.Core.Serialization;
+using PicoStack.Core.Web;
 
 namespace PicoStack.Core.Rest
 {

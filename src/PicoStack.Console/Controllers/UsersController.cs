@@ -2,6 +2,7 @@
 using PicoStack.Core;
 using PicoStack.Core.DataAccess;
 using PicoStack.Core.Rest;
+using PicoStack.Core.Web;
 
 namespace PicoStack.Console.Controllers
 {

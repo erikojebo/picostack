@@ -1,4 +1,4 @@
-﻿namespace PicoStack.Core
+﻿namespace PicoStack.Core.Web
 {
     public class HttpRequest
     {
