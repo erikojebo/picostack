@@ -19,7 +19,8 @@ namespace PicoStack.Core.Web
 
         public StaticFileRequestHandler(string baseDirectory)
         {
-            _baseDirectory = baseDirectory;
+            var directoryInfo = new DirectoryInfo(baseDirectory);
+            _baseDirectory = directoryInfo.FullName;
         }
 
         public StaticFileRequestHandler(string baseDirectory, IRequestHandler next) : this(baseDirectory)

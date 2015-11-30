@@ -48,7 +48,8 @@ namespace PicoStack.Core.Serialization
             foreach (var property in properties)
             {
                 var serializedValue = Serialize(property.GetValue(obj, null));
-                serializedProperties.Add($"\"{property.Name}\": {serializedValue}");
+                var camelCasePropertyName = property.Name[0].ToString().ToLower() + property.Name.Substring(1);
+                serializedProperties.Add($"\"{camelCasePropertyName}\": {serializedValue}");
             }
 
             return "{" + string.Join(", ", serializedProperties) + "}";

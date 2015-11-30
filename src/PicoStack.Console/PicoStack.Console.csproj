@@ -49,6 +49,12 @@
       <Name>PicoStack.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mvvm\pico.js" />
+    <Content Include="Mvvm\app.js" />
+    <Content Include="Mvvm\index.html" />
+    <Content Include="Mvvm\knockoff.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
